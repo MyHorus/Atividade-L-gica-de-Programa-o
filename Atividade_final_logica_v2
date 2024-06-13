@@ -1,11 +1,7 @@
 #include <stdio.h>
+#include<locale.h>
 // DECLARAÇÃO DAS VARIAVEIS PARA INTEGRAÇÃO DOS MODULOS UTILIZADOS NESSE SISTEMA.
     char menu_principal, menu_operacional, menu_financeiro, menu_negocios;
-
-    // ESTRUTURA DE ORGANIZACAO DO SISTEMA PARA MELHOR APRESENTAÇÃO
-    printf("===================================================================================================================\n");
-    printf("============================================ESTOQUE CERTO LTDA ====================================================\n");
-    printf("==================================== SISTEMA DE GERENCIAMENTO DE ESTOQUE===========================================\n");
 
 int i;
 
@@ -76,7 +72,13 @@ typedef struct
 
 int main()
 {
-    int perguntaMenu;
+    setlocale(LC_ALL, "Portuguese");
+	// ESTRUTURA DE ORGANIZACAO DO SISTEMA PARA MELHOR APRESENTAÇÃO
+    printf("===================================================================================================================\n");
+    printf("============================================ESTOQUE CERTO LTDA ====================================================\n");
+    printf("==================================== SISTEMA DE GERENCIAMENTO DE ESTOQUE===========================================\n");
+    
+	int perguntaMenu;
     struct Funcionario funcionarios[100]; // Array para armazenar os funcionários
     int numFuncionarios = 0; 
     int opcao;
@@ -93,7 +95,6 @@ int main()
         printf("4. OPERACIONAL\n");
         printf("5. SAIR\n");
         printf("Digite a Opção Desejada: \n");
-        printf("\n");
         scanf(" %c", &menu_principal);
         
         switch (menu_principal)
@@ -122,6 +123,7 @@ int main()
                             printf("5. Inventário de Mercadorias\n");
                             printf("6. Retornar ao Menu Principal\n");
                             scanf("%i", &perguntaMenu);
+                            Cadastro cadastro;
                             
                             switch(perguntaMenu)
                             {
@@ -130,8 +132,6 @@ int main()
                                 break;
                                 
                                 case 2:
-                                
-                                Cadastro cadastro;
                                 printf("Informe o código do produto: ");
                                 scanf("%i", &cadastro.codigoPro);
                                 printf("Informe o nome do produto: ");
@@ -169,6 +169,7 @@ int main()
                         break;
                     case '2':
                         printf("Setor FINANCEIRO selecionado.\n");
+                        
                         break;
                     case '3':
                         printf("Setor OPERACIONAL selecionado.\n");
@@ -182,6 +183,7 @@ int main()
                             printf("5. Inventário de Mercadorias\n");
                             printf("6. Retornar ao Menu Principal\n");
                             scanf("%i", &perguntaMenu);
+                            Cadastro cadastro;
                             
                             switch(perguntaMenu)
                             {
@@ -190,8 +192,7 @@ int main()
                                 break;
                                 
                                 case 2:
-                                
-                                Cadastro cadastro;
+
                                 printf("Informe o código do produto: ");
                                 scanf("%i", &cadastro.codigoPro);
                                 printf("Informe o nome do produto: ");
