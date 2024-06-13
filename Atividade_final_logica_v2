@@ -1,11 +1,7 @@
 #include <stdio.h>
+#include<locale.h>
 // DECLARAÇÃO DAS VARIAVEIS PARA INTEGRAÇÃO DOS MODULOS UTILIZADOS NESSE SISTEMA.
     char menu_principal, menu_operacional, menu_financeiro, menu_negocios;
-
-    // ESTRUTURA DE ORGANIZACAO DO SISTEMA PARA MELHOR APRESENTAÇÃO
-    printf("===================================================================================================================\n");
-    printf("============================================ESTOQUE CERTO LTDA ====================================================\n");
-    printf("==================================== SISTEMA DE GERENCIAMENTO DE ESTOQUE===========================================\n");
 
 int i;
 
@@ -76,14 +72,50 @@ typedef struct
 
 int main()
 {
-    int perguntaMenu;
+    setlocale(LC_ALL, "Portuguese");
+	// ESTRUTURA DE ORGANIZACAO DO SISTEMA PARA MELHOR APRESENTAÇÃO
+    printf("===================================================================================================================\n");
+    printf("============================================ESTOQUE CERTO LTDA ====================================================\n");
+    printf("==================================== SISTEMA DE GERENCIAMENTO DE ESTOQUE===========================================\n");
+    
+	int perguntaMenu;
     struct Funcionario funcionarios[100]; // Array para armazenar os funcionários
     int numFuncionarios = 0; 
     int opcao;
     int i;
+    Cadastro cadastro[20];
+    int consulta;
 
     do
     {
+        // DEFINICAO DO MENU PRINCIPAL COM OS SETORES DEFINIDOS
+        /*printf("*\n");
+        printf("\nMENU PRINCIPAL, ESCOLHA O SETOR QUE DESEJA TER ACESSO: \n");
+        printf("1. SOCIO MAJORITÁRIO\n");
+        printf("2. DIRETORIA OPERACIONAL\n");
+        printf("3. DIRETORIA FINANCEIRA\n");
+        printf("4. DIRETORIA DE NEGÓCIOS\n");
+        printf("5. SAIR\n");
+        printf("Digite a Opção Desejada: \n");
+        scanf(" %c", &menu_principal);
+        switch(menu_principal)
+        {
+            case 1:
+            	
+            break;
+            case 2:
+            	
+            break;
+            case 3:
+            	
+            break;
+            case 4:
+            	
+            break;
+            case 5:
+            	
+            break;
+        }*/
         // DEFINICAO DO MENU PRINCIPAL COM OS SETORES DEFINIDOS
         printf("*\n");
         printf("\nMENU PRINCIPAL, ESCOLHA O SETOR QUE DESEJA TER ACESSO: \n");
@@ -93,7 +125,6 @@ int main()
         printf("4. OPERACIONAL\n");
         printf("5. SAIR\n");
         printf("Digite a Opção Desejada: \n");
-        printf("\n");
         scanf(" %c", &menu_principal);
         
         switch (menu_principal)
@@ -111,7 +142,7 @@ int main()
                 switch (menu_operacional)
                 {
                     case '1':
-                        printf("Setor OPERACIONAL selecionado.\n");
+                        /*printf("Setor OPERACIONAL selecionado.\n");
                         do
                         {
                             printf("\nMENU OPERACIONAL, ESCOLHA A FUNÇÃO QUE DESEJA TER ACESSO: \n");
@@ -122,6 +153,7 @@ int main()
                             printf("5. Inventário de Mercadorias\n");
                             printf("6. Retornar ao Menu Principal\n");
                             scanf("%i", &perguntaMenu);
+                            Cadastro cadastro;
                             
                             switch(perguntaMenu)
                             {
@@ -130,14 +162,12 @@ int main()
                                 break;
                                 
                                 case 2:
-                                
-                                Cadastro cadastro;
                                 printf("Informe o código do produto: ");
-                                scanf("%i", &cadastro.codigoPro);
+                                scanf("%i", &cadastro[1].codigoPro);
                                 printf("Informe o nome do produto: ");
-                                scanf("%s", cadastro.nomePro);
+                                scanf("%s", cadastro[1].nomePro);
                                 printf("Informe a data de fabricação: ");
-                                scanf("%i%i%i", &cadastro.dataFab.dia, &cadastro.dataFab.mes, &cadastro.dataFab.ano);
+                                scanf("%i%i%i", &cadastro[1].dataFab.dia, &cadastro[1].dataFab.mes, &cadastro[1].dataFab.ano);
                                 
                                 break;
                                 
@@ -165,10 +195,11 @@ int main()
                             printf("Deseja retornar ao menu operacional? ");
                             scanf("%i", &perguntaMenu);
                             
-                        }while(perguntaMenu);
+                        }while(perguntaMenu);*/
                         break;
                     case '2':
                         printf("Setor FINANCEIRO selecionado.\n");
+                        
                         break;
                     case '3':
                         printf("Setor OPERACIONAL selecionado.\n");
@@ -186,19 +217,23 @@ int main()
                             switch(perguntaMenu)
                             {
                                 case 1:
-                                
+                                	printf("Insira o código da mercadoria que você deseja consultar: ");
+                                	scanf("%i", &consulta);
+                                	printf("Mercadoria: %i\n", cadastro[consulta].codigoPro);
+                                	printf("Nome: %s\n", cadastro[consulta].nomePro);
+                                	printf("Data de Fabricação: %i/%i/%i\n", cadastro[consulta].dataFab.dia, cadastro[consulta].dataFab.mes, cadastro[consulta].dataFab.ano);
                                 break;
                                 
                                 case 2:
-                                
-                                Cadastro cadastro;
-                                printf("Informe o código do produto: ");
-                                scanf("%i", &cadastro.codigoPro);
-                                printf("Informe o nome do produto: ");
-                                scanf("%s", cadastro.nomePro);
-                                printf("Informe a data de fabricação: ");
-                                scanf("%i%i%i", &cadastro.dataFab.dia, &cadastro.dataFab.mes, &cadastro.dataFab.ano);
-                                
+                                for(i=23; i<=25; i++)
+                                {
+                                    printf("Informe o código do produto: ");
+                                    scanf("%i", &cadastro[i].codigoPro);
+                                    printf("Informe o nome do produto: ");
+                                    scanf("%s", cadastro[i].nomePro);
+                                    printf("Informe a data de fabricação: ");
+                                    scanf("%i%i%i", &cadastro[i].dataFab.dia, &cadastro[i].dataFab.mes, &cadastro[i].dataFab.ano);
+                                }
                                 break;
                                 
                                 case 3:
